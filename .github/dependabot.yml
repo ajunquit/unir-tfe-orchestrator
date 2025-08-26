@@ -8,7 +8,7 @@ registries:
 
 updates:
   - package-ecosystem: nuget
-    directory: "/"                 # carpeta donde está el .csproj del Orchestrator
+    directory: "/src/UNIR.TFE.Polyrepo.Orchestrator.Module"                 # carpeta donde está el .csproj del Orchestrator
     registries: ["gh"]
     schedule: { interval: daily }
     allow:
