@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UNIR.TFE.Polyrepo.Addition.Module\src\UNIR.TFE.Polyrepo.Addition.Module\UNIR.TFE.Polyrepo.Addition.Module.csproj" />
-    <ProjectReference Include="..\UNIR.TFE.Polyrepo.Division.Module\src\UNIR.TFE.Polyrepo.Division.Module\UNIR.TFE.Polyrepo.Division.Module.csproj" />
-    <ProjectReference Include="..\UNIR.TFE.Polyrepo.Multiplication.Module\src\UNIR.TFE.Polyrepo.Multiplication.Module\UNIR.TFE.Polyrepo.Multiplication.Module.csproj" />
-    <ProjectReference Include="..\UNIR.TFE.Polyrepo.Subtraction.Module\src\UNIR.TFE.Polyrepo.Subtraction.Module\UNIR.TFE.Polyrepo.Subtraction.Module.csproj" />
+    <PackageReference Include="UNIR.TFE.Polyrepo.Addition.Module" Version="0.0.43" />
+    <PackageReference Include="UNIR.TFE.Polyrepo.Subtraction.Module" Version="0.0.1" />
+    <PackageReference Include="UNIR.TFE.Polyrepo.Multiplication.Module" Version="0.0.1" />
+    <PackageReference Include="UNIR.TFE.Polyrepo.Division.Module" Version="0.0.1" />
   </ItemGroup>
 
 </Project>
