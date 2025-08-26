@@ -10,6 +10,6 @@ jobs:
         with: { dotnet-version: '8.x' }
       - name: Auth for GitHub Packages
         run: echo "NUGET_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
-      - run: dotnet restore --configfile nuget.config
+      - run: dotnet restore --configfile Nuget.config
       - run: dotnet build -c Release --no-restore
       - run: dotnet test  -c Release --no-build
