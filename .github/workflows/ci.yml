@@ -1,15 +1,34 @@
-name: build-test
+name: ci
 on: [push, pull_request, workflow_dispatch]
-permissions: { contents: read, packages: read }
+
+permissions:
+  contents: read
+  packages: read
+
 jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-dotnet@v4
-        with: { dotnet-version: '8.x' }
-      - name: Auth for GitHub Packages
-        run: echo "NUGET_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
-      - run: dotnet restore --configfile Nuget.config
-      - run: dotnet build -c Release --no-restore
-      - run: dotnet test  -c Release --no-build
+        with:
+          dotnet-version: '8.x'
+          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Mostrar sources (debug)
+        run: dotnet nuget list source
+
+      - name: Restore
+        run: |
+          dotnet restore \
+            --source "https://api.nuget.org/v3/index.json" \
+            --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+
+      - name: Build
+        run: dotnet build -c Release --no-restore
+
+      - name: Test
+        run: dotnet test -c Release --no-build
