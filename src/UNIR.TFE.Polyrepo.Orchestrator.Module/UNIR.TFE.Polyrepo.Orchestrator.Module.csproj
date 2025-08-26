@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UNIR.TFE.Polyrepo.Addition.Module\src\UNIR.TFE.Polyrepo.Addition.Module\UNIR.TFE.Polyrepo.Addition.Module.csproj" />
+    <ProjectReference Include="..\UNIR.TFE.Polyrepo.Division.Module\src\UNIR.TFE.Polyrepo.Division.Module\UNIR.TFE.Polyrepo.Division.Module.csproj" />
+    <ProjectReference Include="..\UNIR.TFE.Polyrepo.Multiplication.Module\src\UNIR.TFE.Polyrepo.Multiplication.Module\UNIR.TFE.Polyrepo.Multiplication.Module.csproj" />
+    <ProjectReference Include="..\UNIR.TFE.Polyrepo.Subtraction.Module\src\UNIR.TFE.Polyrepo.Subtraction.Module\UNIR.TFE.Polyrepo.Subtraction.Module.csproj" />
+  </ItemGroup>
+
 </Project>
