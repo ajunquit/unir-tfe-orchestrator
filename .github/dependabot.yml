@@ -1,16 +1,24 @@
 version: 2
+
 registries:
-  gh:
+  gh-nuget-ajunquit:
     type: nuget-feed
     url: https://nuget.pkg.github.com/ajunquit/index.json
     username: ajunquit
-    password: ${{secrets.GH_PACKAGES_TOKEN}}
+    password: ${{secrets.GH_PACKAGES_TOKEN}}  # secreto de Dependabot
 
-updates:
+updates:     
   - package-ecosystem: nuget
-    directory: "/src/UNIR.TFE.Polyrepo.Orchestrator.Module"                 # carpeta donde está el .csproj del Orchestrator
-    registries: ["gh"]
-    schedule: { interval: daily }
+    directory: "/src/UNIR.TFE.Polyrepo.Orchestrator.Module"
+    registries:
+      - gh-nuget-ajunquit
     allow:
       - dependency-name: "UNIR.TFE.Polyrepo.*.Module"
+    schedule:
+      interval: daily
+      time: "09:00"
+      timezone: "America/Guayaquil"
+    open-pull-requests-limit: 5
+    target-branch: "main"
+    labels: ["dependencies", "nuget"]
 #fire
