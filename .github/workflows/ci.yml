@@ -1,0 +1,15 @@
+name: build-test
+on: [push, pull_request, workflow_dispatch]
+permissions: { contents: read, packages: read }
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: '8.x' }
+      - name: Auth for GitHub Packages
+        run: echo "NUGET_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+      - run: dotnet restore --configfile nuget.config
+      - run: dotnet build -c Release --no-restore
+      - run: dotnet test  -c Release --no-build
