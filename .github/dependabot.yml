@@ -1,0 +1,15 @@
+version: 2
+registries:
+  gh:
+    type: nuget-feed
+    url: https://nuget.pkg.github.com/ajunquit/index.json
+    username: ajunquit
+    password: ${{secrets.GH_PACKAGES_TOKEN}}
+
+updates:
+  - package-ecosystem: nuget
+    directory: "/"                 # carpeta donde está el .csproj del Orchestrator
+    registries: ["gh"]
+    schedule: { interval: daily }
+    allow:
+      - dependency-name: "UNIR.TFE.Polyrepo.*.Module"
