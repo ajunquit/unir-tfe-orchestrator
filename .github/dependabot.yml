@@ -13,3 +13,4 @@ updates:
     schedule: { interval: daily }
     allow:
       - dependency-name: "UNIR.TFE.Polyrepo.*.Module"
+#fire
