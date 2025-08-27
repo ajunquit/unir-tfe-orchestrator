@@ -10,7 +10,7 @@
     <PackageReference Include="UNIR.TFE.Polyrepo.Addition.Module" Version="0.0.44" />
     <PackageReference Include="UNIR.TFE.Polyrepo.Subtraction.Module" Version="0.0.1" />
     <PackageReference Include="UNIR.TFE.Polyrepo.Multiplication.Module" Version="0.0.1" />
-    <PackageReference Include="UNIR.TFE.Polyrepo.Division.Module" Version="0.0.1" />
+    <PackageReference Include="UNIR.TFE.Polyrepo.Division.Module" Version="0.0.2" />
   </ItemGroup>
 
 </Project>
