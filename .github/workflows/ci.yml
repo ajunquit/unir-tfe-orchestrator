@@ -48,8 +48,14 @@ jobs:
       - name: Build
         run: dotnet build -c Release --no-restore
 
+      # ---- Tests con cobertura + TRX (guardado en ./TestResults) ----
       - name: Test (with coverage)
-        run: dotnet test -c Release --no-build --collect:"XPlat Code Coverage" --verbosity normal
+        run: |
+          mkdir -p TestResults
+          dotnet test -c Release --no-build --verbosity normal \
+            --logger "trx;LogFileName=test_results.trx" \
+            --collect:"XPlat Code Coverage" \
+            --results-directory ./TestResults
 
       # ---- Cobertura al Job Summary + HTML como artefacto ----
       - name: Generate coverage summary
@@ -64,6 +70,17 @@ jobs:
           echo "## Code Coverage" >> $GITHUB_STEP_SUMMARY
           cat coveragereport/Summary.md >> $GITHUB_STEP_SUMMARY
 
+      # ---- Artefacto: test-results (TRX + Cobertura XML) ----
+      - name: Upload test-results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            TestResults/**/*.trx
+            TestResults/**/coverage.cobertura.xml
+          if-no-files-found: error
+
+      # ---- Artefacto: coverage HTML ----
       - name: Upload coverage HTML
         uses: actions/upload-artifact@v4
         with:
