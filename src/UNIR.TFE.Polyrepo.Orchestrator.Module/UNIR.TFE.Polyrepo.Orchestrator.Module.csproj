@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.9" />
-    <PackageReference Include="UNIR.TFE.Polyrepo.Addition.Module" Version="0.0.47" />
+    <PackageReference Include="UNIR.TFE.Polyrepo.Addition.Module" Version="0.0.48" />
     <PackageReference Include="UNIR.TFE.Polyrepo.Subtraction.Module" Version="0.0.5" />
     <PackageReference Include="UNIR.TFE.Polyrepo.Multiplication.Module" Version="0.0.4" />
     <PackageReference Include="UNIR.TFE.Polyrepo.Division.Module" Version="0.0.5" />
